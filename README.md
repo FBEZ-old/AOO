@@ -21,10 +21,18 @@ and the following attributes:
 * `size`
 * `values`: an array containing the stack values. 
 
+The attributes are declared in the `create` method. Since all the variables are global, before proceeding the array "pointer" given to the function to be created must be cleared (i.e. deleted) in order to avoid having additional and unintentional key, value pairs. 
+
 
  ```awk
 
+@namespace "AOO_Stack";
 
-
+function create(obj){
+    obj["_t"]="Stack"; #change type 
+    obj["size"]=0;
+    obj["values"][0]="";
+    return 0;
+}
  ```
   
